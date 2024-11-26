@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: monospace
+        }
+        pre {
+            border: 1px solid black;    /* Adds a solid border */
+            padding: 10px;              /* Adds space between content and border */
+            margin: 20px;               /* Adds space outside the border */
+            background-color: #f5f5f5;  /* Optional: light gray background for readability */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>ASCII Art Generator</title>
+</head>
+
+<body>
+    <div>
+        <h1>ASCII Art Generator</h1>
+        <p>Provide text containing only ASCII printable characters (character code 32–127) then click <b>Generate ASCII Art</b>.</p>
+
+        <form action="/ascii-art" method="POST">
+        
+        <label for="textInput">Write your text here:</label><br>
+        <textarea id="textInputID" name="textInputName" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="banner">Choose your banner:</label>
+        <select id="bannerID" name="bannerName">
+            <option value="standard" selected>Standard</option>
+            <option value="shadow">Shadow</option>
+            <option value="thinkertoy">Thinkertoy</option>
+        </select><br><br>
+
+        <input type="submit" value="Generate ASCII Art">
+        <!-- <button type="submit">Generate ASCII Art</button> -->
+        </form>
+</div>
+
+<div>
+    <h2>Your ASCII Art</h2>
+    <!-- Template placeholder for ASCII art result -->
+    <pre>{{.}}</pre>
+    <!-- In Go's html/template package, {{.}} represents the data passed into the template from your Go code. The . (dot) is a placeholder that holds whatever value you provide to templates.Execute. When {{.}} appears in the template, it’s replaced by the data passed in. templates.Execute(w, asciiArt) -- Here, asciiArt is the data being passed to the template, so {{.}} in the template will be replaced with the value of asciiArt.-->
+</div>
+
+</body>
+</html>
