@@ -15,7 +15,7 @@ func main() {
 	http.HandleFunc("/ascii-art", indexHandlerFunc)
 
 	fmt.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe("localhost:8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 
 }
 
